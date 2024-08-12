@@ -1,0 +1,24 @@
+git init : 在當前資料夾底下建立一個.git 資料夾，紀錄在當前資料夾產生的 git 指令結果
+
+git add . : 將當前資料夾底下的所有檔案加入預備 作存檔紀錄 和 上傳至 github
+
+git status : 查看有哪些檔案已被或還沒被 (git add .) 的
+
+git commit -m "自訂訊息" : 紀錄存檔紀錄並為這個存檔紀錄命名往後比較好了解
+
+git remote add origin https://github.com/uruha831205/git_command.git : 建立 github 遠端連線，名為 origin((可自訂名稱))
+
+git remote -v : 查看目前有多少個遠端連線
+
+git remote remove origin : 刪除該遠端連線
+
+!master : 系統預設創建的主要支線
+git push -u origin master : 將當前資料夾下的檔案上傳至 指定 github
+
+git pull -u origin master : 將指定 github 下載至當料夾
+
+git clone https://github.com/uruha831205/git_command.git : 複製指定 github 的檔案至當下資料夾((這個通常是別人帳號底下的))
+
+
+PS. 若git add . 出現錯誤 : warning: in the working copy of 'git_command.txt', CRLF will be replaced by LF the next time Git touches it
+使用指令可排除 : git config --global core.autocrlf true

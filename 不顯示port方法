@@ -1,2 +1,13 @@
+在 vite.config.js 中尋找 export default defineConfig，
+並在裡面創建一個 item，如下:
+server: {
+host: "0.0.0.0",
+port: 80,
+// https: {
+// key: fs.readFileSync(path.resolve(**dirname, "horse2hotel.key")),
+// cert: fs.readFileSync(path.resolve(**dirname, "horse2hotel.crt")),
+// },
+},
+
 HTTP Port : 80
 HTTPS Port : 443

@@ -6,6 +6,23 @@ git status : 查看有哪些檔案已被或還沒被 (git add .) 的
 
 git commit -m "自訂訊息" : 紀錄存檔紀錄和為這個存檔紀錄命名往後比較好了解
 
+git log --oneline -5 : 查看最近幾次的提交紀錄
+
+(推薦)git reset --soft HEAD~N : 將存檔紀錄返回至前N筆，第N筆後的存檔紀錄並不會被刪除
+範例:
+(master) aaa123 test1
+bbb123 test2
+ccc123 test3
+我把master移動到bbb123，aaa123 並不會被刪除並保留在暫存區，之後若反悔可移動到該存檔紀錄
+
+git reset --hard HEAD~N : 將存檔紀錄返回至前N筆，第N筆後的存檔紀錄會被刪除
+範例
+一樣上述例子
+我把head移動到bbb123，aaa123 會被刪除並不保留在暫存區，之後若反悔還是可以找到該存檔紀錄
+
+git reflog : 查看過往刪除的存檔紀錄
+查看到要返回的commit ID 執行 : git reset <commit ID>
+
 git remote add origin https://github.com/uruha831205/git_command.git : 建立 github 遠端連線，名為 origin((可自訂名稱))
 
 git remote -v : 查看目前有多少個遠端連線
@@ -13,6 +30,8 @@ git remote -v : 查看目前有多少個遠端連線
 git remote remove origin : 刪除該遠端連線
 
 git branch new-branch-name : 創建一個分支
+
+git branch -a : 查看所有分支
 
 git checkout new-branch-name : 切換到分支
 

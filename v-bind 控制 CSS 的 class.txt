@@ -1,0 +1,31 @@
+<script setup>
+  import { ref } from "vue";
+
+  const isActive = ref(false);
+
+  function toggle() {
+    isActive.value = !isActive.value;
+  }
+</script>
+
+<template>
+  <footer
+      :class="[
+        'bottom-sidebar-menu', => 長駐的CSS class 以 字串 給值
+        { 'bottom-sidebar-menu-addeffect': isActive },
+        { 'bottom-sidebar-menu-canceleffect': !isActive },
+        => 若是會更變使用的的CSS class 就以obj( 字串 : boolean)給值
+      ]"
+    >
+</template>
+
+<style scoped>
+  .bottom-sidebar-menu-addeffect {
+    transition: 0.5s;
+    height: 100vh;
+  }
+  .bottom-sidebar-menu-canceleffect {
+    transition: 0.5s;
+    height: 40px;
+  }
+</style>

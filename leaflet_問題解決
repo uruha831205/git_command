@@ -1,0 +1,9 @@
+1.地圖出現白線:
+找到該檔案 : 磁碟或資料夾/node_modules/leaflet/dist/leaflet.css 
+.leaflet-container img.leaflet-tile {
+	/* See: https://bugs.chromium.org/p/chromium/issues/detail?id=600120 */
+	mix-blend-mode: normal;  <= 修改
+}
+
+修改完專案重啟
+https://github.com/Leaflet/Leaflet/issues/3575

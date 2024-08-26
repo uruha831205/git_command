@@ -31,6 +31,8 @@ git remote remove origin : 刪除該遠端連線
 
 git branch new-branch-name : 創建一個分支
 
+git branch -M "main" : 強制重新命名當前的分支
+
 git branch -a : 查看所有分支
 
 git checkout new-branch-name : 切換到分支

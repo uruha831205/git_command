@@ -23,3 +23,29 @@ a_list.value[3] = "zxc"
 
 a_object.value.item1 = 50
 a_object.value.item2 = "4"
+
+*****迷思 : 
+ref(ref(變數)) 的返回值 : Ref(變數)
+解析:
+假設變數是 
+const obj = {'item1':{'name':'ma', 'age':10}}
+最內層的ref(變數)返回值為Ref(變數) ， 若要在<script>返回值為Ref(變數) 的 name的話 : Ref(變數).value.item1.name
+最外層的ref(ref(變數))返回值還是 Ref(變數)，若要在<script>返回值為Ref(變數) 的 name的話一樣 : Ref(變數).value.item1.name，而不是Ref(變數).value.value.item1.name
+
+範例:
+<script setup>
+    import { reactive } from 'vue';
+    import { ref, computed } from 'vue'
+    const obj = ref({'item1':{'name':'ma', 'age':10}})
+
+    const ref_obj = ref(obj);
+
+    const edit_q = computed(()=>{
+    return ref_obj.value.item1.name
+    })
+</script>
+
+<template>
+    <div>{{edit_q}}</div>
+    <input v-model="ref_obj.item1.name"/> ============> v-model獨特功能 : 會自動解包所以不須使用.value
+</template>

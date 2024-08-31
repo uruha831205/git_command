@@ -35,12 +35,18 @@ git branch -M "main" : 強制重新命名當前的分支
 
 git branch -a : 查看所有分支
 
+git branch -d <branch-name> : 刪除分支，如果該分支還有尚未合併的變更，Git 會警告你，並阻止刪除。
+
+git branch -D <branch-name> : 強制刪除分支。
+
+git push origin --delete <branch-name> : 刪除遠端分支，請確保你沒有在使用該分支。
+
 git checkout new-branch-name : 切換到分支
 
 !master : 系統預設創建的主要支線
 git push -u origin(git遠端連線) master(分支) : 將當前資料夾下的檔案上傳至 指定 github
 
-git pull -u origin master(分支) : 將指定 github 下載至當料夾
+git pull : 將指定 github 下載至當料夾
 
 git clone https://github.com/uruha831205/git_command.git : 複製指定 github 的檔案至當下資料夾((這個通常是別人帳號底下的))
 

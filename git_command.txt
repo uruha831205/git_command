@@ -8,17 +8,10 @@ git commit -m "自訂訊息" : 紀錄存檔紀錄和為這個存檔紀錄命名�
 
 git log --oneline -5 : 查看最近幾次的提交紀錄
 
-(推薦)git reset --soft HEAD~N : 將存檔紀錄返回至前N筆，第N筆後的存檔紀錄並不會被刪除
-範例:
-(master) aaa123 test1
-bbb123 test2
-ccc123 test3
-我把master移動到bbb123，aaa123 並不會被刪除並保留在暫存區，之後若反悔可移動到該存檔紀錄
+git reset --soft <commit 的 代碼> : commit指針指向該commit，本地端程式碼並不會"返回"成該commit 版本的程式碼及檔案數目，
+                                    但可讓目前的螢幕上程式碼及程式再創新一個commit
 
-git reset --hard HEAD~N : 將存檔紀錄返回至前N筆，第N筆後的存檔紀錄會被刪除
-範例
-一樣上述例子
-我把head移動到bbb123，aaa123 會被刪除並不保留在暫存區，之後若反悔還是可以找到該存檔紀錄
+git reset --hard <commit 的 代碼> : commit指針指向該commit，並將本地端程式碼"返回"成該commit 版本的程式碼及檔案數目
 
 git reflog : 查看過往刪除的存檔紀錄
 查看到要返回的commit ID 執行 : git reset <commit ID>

@@ -1,0 +1,87 @@
+
+!安裝套件
+
+安裝 @vue/test-utils
+
+    npm install --save-dev @vue/test-utils
+
+安裝 jest 及 babel-jest : 進行 JavaScript 的轉譯
+
+    npm install --save-dev jest@27 babel-jest@27
+
+安裝vue3-jest : 將 vue 組件轉譯成 JavaScript
+
+    npm install --save-dev vue3-jest@27
+    如過安裝過程時顯示錯誤執行以下:
+    npm install --save-dev vue3-jest@latest
+
+安裝 jest-environment-jsdom@27 : 模擬在瀏覽器環境中實現 JavaScript
+
+    npm install --save-dev jest-environment-jsdom@27
+
+安裝@babel/preset-env : 根據你的目標環境自動決定需要轉換哪些語法特性
+
+    npm install --save-dev @babel/preset-env
+
+!!在專案跟目錄底下創建檔案
+babel.config.cjs : 
+
+    module.exports = api => {
+    return {
+        presets: [
+        ["@babel/preset-env"],
+        ]
+    }
+    }
+
+jest.config.cjs : 
+
+    module.exports = {
+    testEnvironment: 'jsdom',
+    transform: {
+        '^.+\\.vue$': 'vue3-jest',
+        '^.+\\js$': 'babel-jest',
+    },
+    moduleFileExtensions: ['vue', 'js', 'json', 'jsx', 'ts', 'tsx', 'node'],
+    };
+
+確認 package.json 相關設定 (一定要有以下項目): 
+
+    "scripts": {
+        "test": "jest",
+    },  
+    "devDependencies": {
+        "@babel/preset-env": "^7.24.3",
+        "@vue/test-utils": "^2.4.5",
+        "babel-jest": "^27.5.1",
+        "jest": "^27.5.1",
+        "vue3-jest": "^27.0.0-alpha.1"
+        "jest-environment-jsdom": "^27.5.1",
+    }
+
+!!!執行測試檔案
+在src底下建立 test 資料夾
+測試檔案名稱格式 (xxx任意取名，檔名後兩格詞綴一定要依樣): xxx.test.js
+
+範例:
+創建一個名為 my_test2.test.js 在 scr資料夾底下的test資料夾內，內容:
+    import { mount } from "@vue/test-utils";
+    import CustomButton from "../components/Button.vue";
+
+    // 這段程式碼的目的是測試 App 組件是否可以正確地掛載，並且在掛載過程中不會出現錯誤。
+
+    // describe 函數是用來定義一個測試套件
+    describe("first test", () => {
+    // it 函數是用來定義一個測試用例
+    it("mounts without errors", () => {
+        // mount 函數是用來掛載一個 Vue 組件並返回一個包裹器物件
+        const wrapper = mount(CustomButton);
+
+        expect(wrapper).toBeTruthy();
+    });
+    });
+
+建立完後，在 terminal 輸入 npm test 即可
+
+參考資料:
+https://et20020223.medium.com/vue3-vue-test-utils-%E5%AE%89%E8%A3%9D%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE%E7%B4%80%E9%8C%84-522675d7d546

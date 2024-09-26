@@ -26,6 +26,8 @@ git branch new-branch-name : 創建一個分支
 
 git branch -M "main" : 強制重新命名當前的分支
 
+git branch -m <old branch name> <new branch name> : 指定 branch 改名
+
 git branch -a : 查看所有分支
 
 git branch -d <branch-name> : 刪除分支，如果該分支還有尚未合併的變更，Git 會警告你，並阻止刪除。
@@ -36,7 +38,8 @@ git push origin --delete <branch-name> : 刪除遠端分支，請確保你沒有
 
 git checkout new-branch-name : 切換到分支
 
-!master : 系統預設創建的主要支線
+!! master : 系統預設創建的主要支線 !!
+
 git push -u origin(git遠端連線) master(分支) : 將當前資料夾下的檔案上傳至 指定 github
 
 git pull : 將指定 github 下載至當料夾

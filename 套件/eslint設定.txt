@@ -1,0 +1,10 @@
+若 components 出現 <script setup> 出現紅色底線，在 .eslintrc.cjs 中修改
+
+module.exports = {
+  root: true,
+  extends: ["plugin:vue/vue3-essential", "eslint:recommended"],
+  parserOptions: {
+    ecmaVersion: "latest",
+  },
+  lintOnSave: false,
+};

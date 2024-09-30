@@ -1,0 +1,4 @@
+extension=zip
+extension=fileinfo
+以上二項在php.ini 檔案中有被;註解，請把註解刪除
+以免造成安裝上的錯誤!!

@@ -3,7 +3,7 @@
 npm install cypress --save-dev
 npm install start-server-and-test --save-dev
 
-在 package.json 的scripts項目中加入
+在 package.json 的 scripts 項目中加入
 
     "start": "npm run dev",
     "cy:open": "cypress open --e2e -b chrome", (這邊我自選開啟 E2E選項 和 chrome瀏覽器)
@@ -11,9 +11,9 @@ npm install start-server-and-test --save-dev
     "test:dev": "start-server-and-test start http://localhost:5173 cy:open",
     "test:e2e": "start-server-and-test start http://localhost:5173 cy:run"
 
-以 npm run cy:open 開啟 Cypress，開啟後會出現 Cypress 的視窗，
+在 terminal 輸入 npm run cy:open 開啟 Cypress，開啟後會出現 Cypress 的視窗，
 點擊 E2E 相關選項，瀏覽器自選，
 會發現專案多一個資料夾:cypress(測試檔案、除錯快照和影片的放置地方)，之後測試檔案一定要放在e2e資料夾內
 檔案全名: xxxx.cy.js (xxxx可自訂，.cy.xx不可改)
 
-之後要以本地端網站做測試的話 : npm run test:dev
+之後要以本地端網站做測試的話在 terminal 輸入 npm run test:dev

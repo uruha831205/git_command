@@ -1,0 +1,31 @@
+。開啟 Apache 虛擬主機 :
+    在 Apache\conf 中找到 httpd.conf 該檔案，並找出
+    # Virtual hosts
+    # Include conf/extra/httpd-vhosts.conf ，
+    把 # Include conf/extra/httpd-vhosts.conf 的註解刪掉後存檔
+
+。Apache 虛擬主機設定:
+    在 Apache\conf\extra 中找到 httpd-vhosts.conf，新增
+    <VirtualHost *: 指定port>
+    ServerName 你的 Domain Name
+    DocumentRoot "你的laravel專案/public"
+    <Directory "你的laravel專案/public">
+        AllowOverride All
+        Require all granted
+    </Directory>
+	ErrorLog "logs/名稱自取.error.log"    ===> 執行有錯誤會記錄在該.log檔
+	CustomLog "logs/名稱自取.access.log" common    ===> 任何執行都會記錄在該.log檔
+    </VirtualHost>
+
+
+補充:
+common 指令:
+預定義的日誌格式如下
+客戶端 IP 地址：發出請求的客戶端的 IP 地址。
+身份驗證用戶名：如果有進行身份驗證，則顯示用戶名。
+請求時間：請求被接收的時間。
+請求方法：如 GET、POST 等。
+請求的 URL：客戶端請求的資源。
+HTTP 版本：如 HTTP/1.1。
+狀態碼：伺服器對請求的響應狀態碼，如 200（成功）、404（未找到）等。
+響應大小：伺服器返回的字節數。

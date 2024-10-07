@@ -1,0 +1,4 @@
+9以上某版本開始沒有cors.php檔案
+手動新增如下
+
+php artisan config:publish cors

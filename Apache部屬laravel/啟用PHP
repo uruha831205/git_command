@@ -1,0 +1,4 @@
+在 Apache\conf 中找到 httpd.conf 該檔案，
+在最底下加入 
+PHPIniDir "php資料夾路徑\php.ini"
+LoadModule php_module "php資料夾路徑\php8apache2_4.dll"  ((php版本8以後 php_module 該變數名稱不需加版本號

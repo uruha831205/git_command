@@ -1,0 +1,35 @@
+。開啟 Apache SSL 相關功能 :
+    在 Apache\conf 中找到 httpd.conf 該檔案，並找出
+    # LoadModule ssl_module modules/mod_ssl.so
+    # Include conf/extra/httpd-ssl.conf
+    把註解刪除
+
+HTTPS 虛擬主機設定 :
+    在 Apache24\conf\extra 中找到 httpd-ssl.conf 該檔案 ， 在檔案中加入和修改以下:
+
+    <VirtualHost *:443>
+    DocumentRoot "laravel專案路徑/public"
+    SSLCertificateFile "SSL相關檔案放置路徑/apachema.mahorsedomain.online-crt.pem"     ((( SSLCertificateFile ==> SSL檔的.crt
+    SSLCertificateKeyFile "SSL相關檔案放置路徑/apachema.mahorsedomain.online-nopasswd-key.pem"     ((( SSLCertificateKeyFile ==> SSL檔的.key
+    SSLCertificateChainFile "SSL相關檔案放置路徑/apachema.mahorsedomain.online-chain.pem"      ((( SSLCertificateChainFile ==> SSL檔的.chain
+    <Directory "laravel專案路徑/public">
+
+    AllowOverride ALL 
+	#ALL
+    Require all granted
+	#granted
+    </Directory>
+    </VirtualHost> 
+
+若要瀏覽器瀏覽到http時強制轉https: (...內的內容照打)
+<VirtualHost *:80>
+    .
+    .
+    .
+	RewriteEngine On
+	RewriteCond %{HTTPS} off
+	RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    .
+    .
+</VirtualHost>
+

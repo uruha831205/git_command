@@ -4,7 +4,7 @@
     # Include conf/extra/httpd-vhosts.conf ，
     把 # Include conf/extra/httpd-vhosts.conf 的註解刪掉後存檔
 
-。Apache 虛擬主機設定:
+。HTTP 虛擬主機設定:
     在 Apache\conf\extra 中找到 httpd-vhosts.conf，新增
     <VirtualHost *: 指定port>
     ServerName 你的 Domain Name
